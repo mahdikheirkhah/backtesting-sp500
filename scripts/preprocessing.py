@@ -101,7 +101,6 @@ def preprocess_sp500(df):
     try:
         logger.info("Preprocessing SP500 benchmark data...")
         df = resample_monthly(df)
-        # FIX: Added fill_method=None to silence the FutureWarning
         df['monthly_past_return'] = df['Adjusted Close'].pct_change(1, fill_method=None)
         return df.dropna(subset=['monthly_past_return'])
     except Exception as e:
