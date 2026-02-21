@@ -1,0 +1,4 @@
+--- Backtest Performance Summary ---
+Strategy Total PnL: $66.75
+Benchmark (SP500) Total PnL: $11.99
+Strategy Average Monthly Return: 2.13%
