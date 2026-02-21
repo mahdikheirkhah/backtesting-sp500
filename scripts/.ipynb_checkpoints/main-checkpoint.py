@@ -3,6 +3,7 @@ import logging
 from memory_reducer import memory_reducer
 from preprocessing import preprocessing
 from create_signal import create_signal
+from backtester import backtest 
 
 # Configure logging for main
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -14,7 +15,6 @@ def main():
     # 1. Import Data & Reduce Memory
     logger.info("Step 1: Loading and optimizing data...")
     paths = [os.path.join('data', 'stock_prices.csv'), os.path.join('data', 'sp500.csv')]
-    
     try:
         prices, sp500 = memory_reducer(paths)
     except Exception as e:
@@ -37,10 +37,15 @@ def main():
         logger.critical(f"Pipeline failed during signal generation: {e}")
         return
 
-    # Placeholder for final phase:
-    # backtest(prices, sp500)
+    # 4. Backtest
+    logger.info("Step 4: Running backtest and saving results...")
+    try:
+        backtest(prices, sp500)
+    except Exception as e:
+        logger.critical(f"Pipeline failed during backtesting: {e}")
+        return
     
-    logger.info("--- Pipeline Execution Complete ---")
+    logger.info("--- Pipeline Execution Complete! Check the 'results' folder. ---")
 
 if __name__ == "__main__":
     main()
