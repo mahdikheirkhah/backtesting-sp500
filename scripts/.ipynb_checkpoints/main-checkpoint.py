@@ -2,6 +2,7 @@ import os
 import logging
 from memory_reducer import memory_reducer
 from preprocessing import preprocessing
+from create_signal import create_signal
 
 # Configure logging for main
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -28,8 +29,15 @@ def main():
         logger.critical(f"Pipeline failed during preprocessing: {e}")
         return
 
-    # Placeholder for the next phases:
-    # prices = create_signal(prices)
+    # 3. Create Signal
+    logger.info("Step 3: Generating trading signals...")
+    try:
+        prices = create_signal(prices)
+    except Exception as e:
+        logger.critical(f"Pipeline failed during signal generation: {e}")
+        return
+
+    # Placeholder for final phase:
     # backtest(prices, sp500)
     
     logger.info("--- Pipeline Execution Complete ---")
