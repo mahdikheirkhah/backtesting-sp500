@@ -28,6 +28,7 @@ def compute_past_returns(df):
     """Computes standard historical monthly returns."""
     try:
         logger.info("Computing past returns...")
+        # FIX: Added fill_method=None to silence the FutureWarning
         return df.pct_change(1, fill_method=None)
     except Exception as e:
         logger.error(f"Error computing past returns: {e}")
