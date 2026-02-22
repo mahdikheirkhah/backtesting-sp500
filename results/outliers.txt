@@ -1,0 +1,16 @@
+--- SP500 Dataset Outlier Report ---
+
+1. Ticker: SPLS | Date: 2012-08-15 | Dataset Price: $93,870,600.00
+   External Check: Historical data indicates Staples (SPLS) traded around $12.00-$13.00 during this time. This is a massive data spike error.
+
+2. Ticker: EMC | Date: 2014-12-26 | Dataset Price: $5,961,363.00
+   External Check: EMC Corporation traded in the $20-$30 range in late 2014. A price of almost $6 million is an extreme artificial outlier.
+
+3. Ticker: DHR | Date: 2014-12-22 | Dataset Price: $2,365,042.00
+   External Check: Danaher Corp (DHR) traded around $60.00 to $70.00 in late 2014. The recorded price is a multimillion-dollar typo.
+
+4. Ticker: STT | Date: 2012-07-10 | Dataset Price: $0.00
+   External Check: State Street (STT) was actively trading around $40.00 in July 2012. A price of exactly zero indicates a missing feed or catastrophic drop-out in the data source.
+
+5. Ticker: KIM | Date: 2013-02-21 | Dataset Price: $0.00
+   External Check: Kimco Realty (KIM) traded around $20.00 in early 2013. A zero-dollar price is a data recording failure.
